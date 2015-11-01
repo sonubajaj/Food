@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">   
+	<link href="assets/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="assets/css/jquery-ui-1.10.2.custom.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="assets/css/stream.css" media="screen" rel="stylesheet" type="text/css">
+    <script src="assets/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="assets/js/jquery-ui-1.10.2.custom.min.js" type="text/javascript"></script>
+    <script src="assets/js/filter.js" type="text/javascript"></script>
+    <script src="data/movies.js" type="text/javascript"></script>
+    <script src="index.js" type="text/javascript"></script>
+	<script src="assets/js/bootstrap-modal.js" type="text/javascript"></script>
+	<script  type="text/javascript" src="assets/js/bootstrap-typeahead.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>	
+    
+    
+        <link rel="stylesheet" type="text/css" href="data/css/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="data/css/Food.css">
+
+  </head>
+  <body>
+ <nav class="navbar navbar-default navbar-graze" role="navigation">
+
+    <div class="container">
+
+        <div class="navbar-header pull-left">
+            <a class="navbar-brand" href="index.html">
+                Takeoff
+            </a>
+        </div>
+
+        <div class="navbar-header pull-right">
+
+                                     
+                        
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse">
+                <span class="sr-only">Toggle menu</span>
+                <i class="icon-reorder"></i>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="nav-collapse">
+
+                        
+            <ul class="nav navbar-nav navbar-primary" role="presentation">
+
+                
+                <li class="">
+                    <a href="collection.html">Product</a>
+                </li>
+
+                                
+                
+                
+            </ul>
+
+            
+            
+            
+                        <ul class="nav navbar-nav navbar-right" role="presentation">
+                
+         
+                <li>
+                                    <a href="collection.php" class="navbar-btn btn btn-theme">get started</a>
+                                </li>
+            </ul>
+
+                        
+        </div>
+    </div>
+</nav>   
+	
+    <div class="container padding-bottom">      	
+	<div class="row">
+		<div class="col-md-12">
+		
+		</div>
+	</div>
+	
+	
+	  <div class="row">
+      <div class="sidebar col-md-3">
+        <div class="row">
+          <h4 class="col-md-6"> Foods (<span id="total_movies">0</span>)</h4>
+          <div class="col-md-6 progress">
+            <div class="progress-bar" id="stream_progress" style="width: 0%">0 %</div>
+          </div>
+        </div><!-- /.row -->
+        <form class="form-inline searchbox">
+            <div class="form-group">
+                <label class="sr-only" for="searchbox">Search</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="searchbox" placeholder="Search &hellip;">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <br>
+        <div class="well">
+            <fieldset id="rating_criteria">
+                <legend>Delivery time</legend> <span id="rating_range_label" class="slider-label">8 - 10</span>
+                <div id="rating_slider" class="slider">
+                </div>
+                <input type="hidden" id="rating_filter" value="8-10">
+            </fieldset>
+        </div>
+        <div class="well">
+            <fieldset id="runtime_criteria">
+                <legend>Parable no of day</legend> <span id="runtime_range_label" class="slider-label">1 day - 10 days</span>
+                <div id="runtime_slider" class="slider">
+                </div>
+                <input type="hidden" id="runtime_filter" value="1-10">
+            </fieldset>
+        </div>
+        <div class="well">
+            <fieldset id="year_criteria">
+                <legend>Shop</legend>
+                <select class="form-control" id="year_filter">
+                    <option value="all">All </option>
+                    <option value="1920-1930">shop 1</option>
+                    <option value="1931-1940">shop 2</option>
+                    <option value="1941-1950">shop 3</option>
+                    <option value="1951-1960">shop 4</option>
+                    <option value="1961-1970">shop 5</option>
+                    <option value="1971-1980">shop 6</option>
+                    <option value="1981-1990">shop 7</option>
+                    <option value="1991-2000">shop 8</option>
+                    <option value="2001-2010">shop 9</option>
+                    <option value="2011-2020">shop 10</option>
+                </select>
+            </fieldset>
+        </div>
+        <div class="well">
+            <fieldset id="genre_criteria">
+                <legend>Cakes</legend>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" value="All" id="all_genre">
+                    All</label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" value="Crime">
+                    Crime</label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" value="Drama">
+                    Drama </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" value="Thriller">
+                    Thriller </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" value="Adventure">
+                    Adventure </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" value="Western">
+                    Western </label>
+                </div>
+              
+              
+            </fieldset>
+        </div>
+		 <div class="well">
+            <fieldset id="genre_criteria">
+                <legend>Cuisines</legend>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" value="All" id="all_genre">
+                    All</label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" value="Crime">
+                    Cakes-Bakery</label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" value="Drama">
+                     Pizza  </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" value="Thriller">
+                    Pizza Biryani </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" value="Adventure">
+                    Fast Food Ice </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                    <input type="checkbox" value="Western">
+                    Italian Burgers </label>
+                </div>                              
+            </fieldset>
+        </div>
+    </div>
+
+<!-- /.col-md-3 -->
+    <div class="movies content col-md-9" id="movies"> </div>
+<!-- /.col-md-9 -->
+</div>
+  </div >
+   
+<!-- /.container -->
+
+
+
+      <script id="movie-template" type="text/html">
+        <div class="col-md-4 movie">
+          <div class="thumbnail">
+            <span class="label label-success rating"><%= rating %>
+            <i class="glyphicon glyphicon-star"></i>
+          </span>
+          <div class="caption">
+     <a href="Product_Detail.html">       <h4><%= name %></h4></a>
+            
+            <div class="detail">
+			
+              <dl>
+                <dt></dt>
+                <dd class="text-center"> <img src='<%= Productimg %>' alt="Smiley face"  width="97%" style="border: 4px solid rgb(204, 204, 204);"/></dd>
+                <dt></dt>
+                
+                <dt>Brand <%= year %> </dt>
+                
+				 <dt>Delivery in 1h </dt>
+             
+					
+                <dd><b>Rs 785</b></dd>
+				
+				
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+      </script>
+      <script id="genre_template" type="text/html">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="<%= genre %>"> <%= genre %>
+          </label>
+        </div>
+      </script>
+	  
+      <div class="footer-wrapper">
+    <div class="container graze-footer">
+                <div class="row">
+            <div class="col-sm-5 col-skinny-right">
+                <ul>
+                    <li>
+                        © 2015 Takeoff                   </li>
+
+                                        <li>
+                        <a href="#/uk/help/terms">
+                            terms
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#/uk/help/privacy">
+                            privacy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#/uk/about">
+                            about
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#/uk/jobs">
+                            jobs
+                        </a>
+                    </li>
+                                    </ul>
+            </div>
+            <div class="col-sm-5 col-sm-push-2 col-skinny-left">
+                <ul class="links">
+                                        <li>
+                        <a href="#/uk/help/howitworks">
+                            how it works
+                        </a>
+                    </li>
+               
+
+                    <li>
+                        <a href="#/uk/gifts">
+                            gifts
+                        </a>
+                    </li>
+             
+                                        <li>
+                        <a href="#/uk/help/contact">
+                            get in touch
+                        </a>
+                    </li>
+                                    </ul>
+
+                                <p class="socialLinks">
+                                            <a class="facebookBrand" href="#" target="_blank" title="like us on Facebook">
+                            <i class="icon-facebook icon-2x visible-xs"></i>
+                            <i class="icon-facebook hidden-xs"></i>
+                            <span class="sr-only">like us on Facebook</span>
+                        </a>
+                                                                <a class="twitterBrand" href="#" title="follow us on Twitter">
+                            <i class="icon-twitter icon-2x visible-xs"></i>
+                            <i class="icon-twitter hidden-xs"></i>
+                            <span class="sr-only">follow us on Twitter</span>
+                        </a>
+                    
+                                            <a class="instagramBrand" href="#" target="_blank" title="follow us on Instagram">
+                            <i class="icon-instagram icon-2x visible-xs"></i>
+                            <i class="icon-instagram hidden-xs"></i>
+                            <span class="sr-only">follow us on Instagram</span>
+                        </a>
+                    
+                                            <a class="linkedinBrand" href="#" target="_blank" title="follow us on LinkedIn">
+                            <i class="icon-linkedin-sign icon-2x visible-xs"></i>
+                            <i class="icon-linkedin-sign hidden-xs"></i>
+                            <span class="sr-only">follow us on LinkedIn</span>
+                        </a>
+                    
+                        <a href="#" target="_blank">
+                            <i class="icon-tumblr icon-2x visible-xs"></i>
+                            <i class="icon-tumblr hidden-xs"></i>
+                            <span class="sr-only">follow us on Tumblr</span>
+                        </a>
+
+                    <a href="#" target="_blank" title="graze tech blog">
+                        <i class="icon-code icon-2x visible-xs"></i>
+                        <i class="icon-code hidden-xs"></i>
+                        <span class="sr-only">graze tech blog</span>
+                    </a>
+                </p>
+                <div class="spacer-lg visible-xs"></div>
+                            </div>
+        </div>
+    </div>
+    <div class="container-fluid footer-border text-center">
+    
+    </div></div>
+
+    </body>
+  </html>
